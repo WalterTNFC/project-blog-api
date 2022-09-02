@@ -3,6 +3,8 @@ const login = require('./controllers/login');
 const user = require('./controllers/user');
 const allUser = require('./controllers/allUsers');
 const userById = require('./controllers/userById');
+const categories = require('./controllers/categories');
+
 // const { verifyToken } = require('./validation/authorizationValidation');
 // ...
 
@@ -16,6 +18,8 @@ app.use('/user', user);
 // app.use(verifyToken);
 app.use('/user', allUser);
 app.use('/:id', userById);
+
+app.use('/categories', categories);
 
 // É importante exportar a constante `app`,
 // para que possa ser utilizada pelo arquivo `src/server.js`
