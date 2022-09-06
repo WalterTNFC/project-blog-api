@@ -18,7 +18,7 @@ router.post('/', async (req, res) => {
       return res.status(400).json({ message: 'Invalid fields' });
     }
 
-    const token = jwt.sign({ email }, process.env.JWT_SECRET);
+    const token = jwt.sign({ id: user.id, email }, process.env.JWT_SECRET);
     console.log(`Aquiii ${process.env.JWT_SECRET} e token igual a ${token}`);
     return res.status(200).json({ token });
   } catch (e) {
