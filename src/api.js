@@ -5,6 +5,9 @@ const allUser = require('./controllers/allUsers');
 const userById = require('./controllers/userById');
 const categories = require('./controllers/categories');
 const allCategories = require('./controllers/allCategories');
+const getAllBlofPosts = require('./controllers/getAllBlogPost');
+const deleteUser = require('./controllers/deleteUser');
+const validateToken = require('./controllers/tokenValidation');
 
 // const { verifyToken } = require('./validation/authorizationValidation');
 // ...
@@ -22,6 +25,11 @@ app.use('/:id', userById);
 
 app.use('/categories', categories);
 app.use('/categories', allCategories);
+
+// app.use(auth);
+app.use('/post', validateToken, getAllBlofPosts);
+
+app.use('/user/me', deleteUser);
 
 // É importante exportar a constante `app`,
 // para que possa ser utilizada pelo arquivo `src/server.js`
